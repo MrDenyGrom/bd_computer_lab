@@ -45,46 +45,46 @@ void createDatabase(const string& filename) {
     ofstream file(filename);
 
     if (!file.is_open()) {
-        cout << "Îøèáêà ñîçäàíèÿ ôàéëà áàçû äàííûõ!" << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ° ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ Ñ„Ð°Ð¹Ð»Ð° Ð±Ð°Ð·Ñ‹ Ð´Ð°Ð½Ð½Ñ‹Ñ…!" << endl;
         return;
     }
 
-    cout << "Ôàéë áàçû äàííûõ óñïåøíî ñîçäàí." << endl;
+    cout << "Ð¤Ð°Ð¹Ð» Ð±Ð°Ð·Ñ‹ Ð´Ð°Ð½Ð½Ñ‹Ñ… ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ ÑÐ¾Ð·Ð´Ð°Ð½." << endl;
 }
 
 void addRecord(const string& filename) {
     ofstream file(filename, ios::binary | ios::app);
 
     if (!file.is_open()) {
-        cout << "Îøèáêà îòêðûòèÿ ôàéëà äëÿ äîáàâëåíèÿ çàïèñè!" << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ñ Ñ„Ð°Ð¹Ð»Ð° Ð´Ð»Ñ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð·Ð°Ð¿Ð¸ÑÐ¸!" << endl;
         return;
     }
 
     Computer computer{};
 
-    cout << "Ââåäèòå äàííûå î êîìïüþòåðå:" << endl;
-    cout << "Òèï ïðîöåññîðà: ";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¾ ÐºÐ¾Ð¼Ð¿ÑŒÑŽÑ‚ÐµÑ€Ðµ:" << endl;
+    cout << "Ð¢Ð¸Ð¿ Ð¿Ñ€Ð¾Ñ†ÐµÑÑÐ¾Ñ€Ð°: ";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.getline(computer.processorType, 20);
 
-    cout << "Òàêòîâàÿ ÷àñòîòà ïðîöåññîðà: ";
+    cout << "Ð¢Ð°ÐºÑ‚Ð¾Ð²Ð°Ñ Ñ‡Ð°ÑÑ‚Ð¾Ñ‚Ð° Ð¿Ñ€Ð¾Ñ†ÐµÑÑÐ¾Ñ€Ð°: ";
     cin >> computer.processorFrequency;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    cout << "Îáúåì îïåðàòèâíîé ïàìÿòè (Ãáàéò): ";
+    cout << "ÐžÐ±ÑŠÐµÐ¼ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¸Ð²Ð½Ð¾Ð¹ Ð¿Ð°Ð¼ÑÑ‚Ð¸ (Ð“Ð±Ð°Ð¹Ñ‚): ";
     cin >> computer.ramCapacity;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    cout << "Îáúåì æåñòêîãî äèñêà (Ãáàéò): ";
+    cout << "ÐžÐ±ÑŠÐµÐ¼ Ð¶ÐµÑÑ‚ÐºÐ¾Ð³Ð¾ Ð´Ð¸ÑÐºÐ° (Ð“Ð±Ð°Ð¹Ñ‚): ";
     cin >> computer.hddCapacity;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    cout << "Òèï ìîíèòîðà: ";
+    cout << "Ð¢Ð¸Ð¿ Ð¼Ð¾Ð½Ð¸Ñ‚Ð¾Ñ€Ð°: ";
     cin.getline(computer.monitorType, 20);
 
     file.write((char*)&computer, sizeof(computer));
 
-    cout << "Çàïèñü óñïåøíî äîáàâëåíà." << endl;
+    cout << "Ð—Ð°Ð¿Ð¸ÑÑŒ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð°." << endl;
 }
 
 void searchByProcessorType(const string& filename, const string& searchTerm) {
@@ -92,7 +92,7 @@ void searchByProcessorType(const string& filename, const string& searchTerm) {
     ofstream outfile(SEARCH_RESULTS_FILENAME, ios::binary);
 
     if (!infile.is_open() || !outfile.is_open()) {
-        cout << "Îøèáêà îòêðûòèÿ ôàéëà!" << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ñ Ñ„Ð°Ð¹Ð»Ð°!" << endl;
         return;
     }
 
@@ -106,10 +106,10 @@ void searchByProcessorType(const string& filename, const string& searchTerm) {
     }
 
     if (found) {
-        cout << "Ðåçóëüòàòû ïîèñêà ñîõðàíåíû â ôàéë " << SEARCH_RESULTS_FILENAME << endl;
+        cout << "Ð ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ñ‹ Ð¿Ð¾Ð¸ÑÐºÐ° ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ñ‹ Ð² Ñ„Ð°Ð¹Ð» " << SEARCH_RESULTS_FILENAME << endl;
     }
     else {
-        cout << "Çàïèñè íå íàéäåíû." << endl;
+        cout << "Ð—Ð°Ð¿Ð¸ÑÐ¸ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ñ‹." << endl;
     }
 }
 
@@ -126,7 +126,7 @@ void sortByProcessorType(const string& filename, const string& outputFilename) {
     ofstream outfile(outputFilename, ios::binary);
 
     if (!file.is_open() || !outfile.is_open()) {
-        cout << "Îøèáêà îòêðûòèÿ ôàéëà äëÿ ñîðòèðîâêè!" << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ñ Ñ„Ð°Ð¹Ð»Ð° Ð´Ð»Ñ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ¸!" << endl;
         return;
     }
 
@@ -150,7 +150,7 @@ void sortByProcessorType(const string& filename, const string& outputFilename) {
 
     delete[] computers;
 
-    cout << "Ñîðòèðîâêà ïî òèïó ïðîöåññîðà âûïîëíåíà." << endl;
+    cout << "Ð¡Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ° Ð¿Ð¾ Ñ‚Ð¸Ð¿Ñƒ Ð¿Ñ€Ð¾Ñ†ÐµÑÑÐ¾Ñ€Ð° Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð°." << endl;
 }
 
 void sortByProcessorFrequency(const string& filename, const string& outputFilename) {
@@ -158,7 +158,7 @@ void sortByProcessorFrequency(const string& filename, const string& outputFilena
     ofstream outfile(outputFilename, ios::binary);
 
     if (!file.is_open() || !outfile.is_open()) {
-        cout << "Îøèáêà îòêðûòèÿ ôàéëà äëÿ ñîðòèðîâêè!" << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ñ Ñ„Ð°Ð¹Ð»Ð° Ð´Ð»Ñ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ¸!" << endl;
         return;
     }
 
@@ -182,27 +182,27 @@ void sortByProcessorFrequency(const string& filename, const string& outputFilena
 
     delete[] computers;
 
-    cout << "Ñîðòèðîâêà ïî òàêòîâîé ÷àñòîòå ïðîöåññîðà âûïîëíåíà." << endl;
+    cout << "Ð¡Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ° Ð¿Ð¾ Ñ‚Ð°ÐºÑ‚Ð¾Ð²Ð¾Ð¹ Ñ‡Ð°ÑÑ‚Ð¾Ñ‚Ðµ Ð¿Ñ€Ð¾Ñ†ÐµÑÑÐ¾Ñ€Ð° Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð°." << endl;
 }
 
 void printFileContents(const string& filename) {
     ifstream file(filename, ios::binary);
 
     if (!file.is_open()) {
-        cout << "Îøèáêà îòêðûòèÿ ôàéëà äëÿ ÷òåíèÿ!" << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ñ Ñ„Ð°Ð¹Ð»Ð° Ð´Ð»Ñ Ñ‡Ñ‚ÐµÐ½Ð¸Ñ!" << endl;
         return;
     }
 
     if (file.peek() == EOF) {
-        cout << "Áàçà äàííûõ ïóñòà." << endl;
+        cout << "Ð‘Ð°Ð·Ð° Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð¿ÑƒÑÑ‚Ð°." << endl;
         return;
     }
 
-    cout << "Áàçà äàííûõ êîìïüþòåðîâ" << endl;
+    cout << "Ð‘Ð°Ð·Ð° Ð´Ð°Ð½Ð½Ñ‹Ñ… ÐºÐ¾Ð¼Ð¿ÑŒÑŽÑ‚ÐµÑ€Ð¾Ð²" << endl;
     for (int i = 0; i <= 80; i++)
         printf("-");
     printf("\n|%-20s|%-20s|%-10s|%-10s|%-15s|\n",
-        "Òèï ïðîöåññîðà", "Òàêòîâàÿ ÷àñòîòà", "Îáúåì ÎÇÓ", "Îáúåì HDD", "Òèï ìîíèòîðà");
+        "Ð¢Ð¸Ð¿ Ð¿Ñ€Ð¾Ñ†ÐµÑÑÐ¾Ñ€Ð°", "Ð¢Ð°ÐºÑ‚Ð¾Ð²Ð°Ñ Ñ‡Ð°ÑÑ‚Ð¾Ñ‚Ð°", "ÐžÐ±ÑŠÐµÐ¼ ÐžÐ—Ð£", "ÐžÐ±ÑŠÐµÐ¼ HDD", "Ð¢Ð¸Ð¿ Ð¼Ð¾Ð½Ð¸Ñ‚Ð¾Ñ€Ð°");
     for (int i = 0; i <= 80; i++)
         printf("-");
     cout << endl;
@@ -223,10 +223,10 @@ void printFileContents(const string& filename) {
 void clearFile(const string& filename) {
     ofstream file(filename, ios::binary | ios::trunc);
     if (file.is_open()) {
-        cout << "Ôàéë " << filename << " óñïåøíî î÷èùåí." << endl;
+        cout << "Ð¤Ð°Ð¹Ð» " << filename << " ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð¾Ñ‡Ð¸Ñ‰ÐµÐ½." << endl;
     }
     else {
-        cout << "Îøèáêà î÷èñòêè ôàéëà " << filename << "!" << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¾Ñ‡Ð¸ÑÑ‚ÐºÐ¸ Ñ„Ð°Ð¹Ð»Ð° " << filename << "!" << endl;
     }
 }
 
@@ -252,17 +252,17 @@ int main() {
     string searchTerm;
 
     do {
-        cout << "\nÌåíþ:" << endl;
-        cout << "1. Äîáàâèòü çàïèñü" << endl;
-        cout << "2. Ñîðòèðîâàòü ïî òàêòîâîé ÷àñòîòå ïðîöåññîðà" << endl;
-        cout << "3. Ñîðòèðîâàòü ïî òèïó ïðîöåññîðà" << endl;
-        cout << "4. Ïîèñê ïî òèïó ïðîöåññîðà" << endl;
-        cout << "5. Âûâåñòè ñîäåðæèìîå ôàéëà áàçû äàííûõ" << endl;
-        cout << "6. Âûâåñòè ñîäåðæèìîå ôàéëà ðåçóëüòàòîâ ïîèñêà" << endl;
-        cout << "7. Î÷èñòèòü ôàéë áàçû äàííûõ" << endl;
-        cout << "8. Î÷èñòèòü ôàéë âûâîäà" << endl;
-        cout << "0. Âûõîä" << endl;
-        cout << "Âûáåðèòå äåéñòâèå: ";
+        cout << "\nÐœÐµÐ½ÑŽ:" << endl;
+        cout << "1. Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð·Ð°Ð¿Ð¸ÑÑŒ" << endl;
+        cout << "2. Ð¡Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ð¾ Ñ‚Ð°ÐºÑ‚Ð¾Ð²Ð¾Ð¹ Ñ‡Ð°ÑÑ‚Ð¾Ñ‚Ðµ Ð¿Ñ€Ð¾Ñ†ÐµÑÑÐ¾Ñ€Ð°" << endl;
+        cout << "3. Ð¡Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ð¾ Ñ‚Ð¸Ð¿Ñƒ Ð¿Ñ€Ð¾Ñ†ÐµÑÑÐ¾Ñ€Ð°" << endl;
+        cout << "4. ÐŸÐ¾Ð¸ÑÐº Ð¿Ð¾ Ñ‚Ð¸Ð¿Ñƒ Ð¿Ñ€Ð¾Ñ†ÐµÑÑÐ¾Ñ€Ð°" << endl;
+        cout << "5. Ð’Ñ‹Ð²ÐµÑÑ‚Ð¸ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ Ñ„Ð°Ð¹Ð»Ð° Ð±Ð°Ð·Ñ‹ Ð´Ð°Ð½Ð½Ñ‹Ñ…" << endl;
+        cout << "6. Ð’Ñ‹Ð²ÐµÑÑ‚Ð¸ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ Ñ„Ð°Ð¹Ð»Ð° Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ð¾Ð² Ð¿Ð¾Ð¸ÑÐºÐ°" << endl;
+        cout << "7. ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ Ñ„Ð°Ð¹Ð» Ð±Ð°Ð·Ñ‹ Ð´Ð°Ð½Ð½Ñ‹Ñ…" << endl;
+        cout << "8. ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ Ñ„Ð°Ð¹Ð» Ð²Ñ‹Ð²Ð¾Ð´Ð°" << endl;
+        cout << "0. Ð’Ñ‹Ñ…Ð¾Ð´" << endl;
+        cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ: ";
         cin >> choice;
 
         switch (choice) {
@@ -276,7 +276,7 @@ int main() {
             sortByProcessorType(DATABASE_FILENAME, SEARCH_RESULTS_FILENAME);
             break;
         case 4:
-            cout << "Ââåäèòå òèï ïðîöåññîðà äëÿ ïîèñêà: ";
+            cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‚Ð¸Ð¿ Ð¿Ñ€Ð¾Ñ†ÐµÑÑÐ¾Ñ€Ð° Ð´Ð»Ñ Ð¿Ð¾Ð¸ÑÐºÐ°: ";
             searchTerm = getlineSafe();
             searchByProcessorType(DATABASE_FILENAME, searchTerm);
             break;
@@ -294,10 +294,10 @@ int main() {
             clearFile(SEARCH_RESULTS_FILENAME);
             break;
         case 0:
-            cout << "Âûõîä èç ïðîãðàììû." << endl;
+            cout << "Ð’Ñ‹Ñ…Ð¾Ð´ Ð¸Ð· Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹." << endl;
             break;
         default:
-            cout << "Íåâåðíûé âûáîð!" << endl;
+            cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€!" << endl;
         }
     } while (choice != 0);
 
